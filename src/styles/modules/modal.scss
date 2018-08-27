@@ -1,0 +1,129 @@
+.fpd-modal {
+    position: fixed;
+    z-index: 1000;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+
+    &__backdrop {
+        background: rgba(0,0,0,.75);
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        z-index: 1;
+    }
+
+    &__container {
+        border: 5px solid $white;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        margin: auto;
+        transform: translate3d(-50%, -50%, 0);
+        z-index: 2;
+
+        &__img {
+            img {
+                max-width: 90vw;
+                height: auto;
+            }
+        }
+    }
+
+    &__nav {
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        width: 100%;
+
+        &__btn {
+            width: 30px;
+            height: 50px;
+            background: $mainColor;
+            border:none;
+            position: absolute;
+
+            &:focus {
+                outline:none;
+            }
+
+            &:after,
+            &:before {
+                height: 2px;
+                width: 16px;
+                content: '';
+                position: absolute;
+                top:calc(50% - 1px);
+                left:6px;
+                background: $white;
+            }
+
+            &--prev {
+                left:0;
+
+                &:after {
+                    transform: rotate(45deg) translateY(100%);
+                    top: 57%;
+                }
+
+                &:before {
+                    transform: rotate(-45deg) translateY(-100%);
+                    top: 43%;
+                }
+            }
+
+            &--next {
+                right:0;
+                
+                &:after {
+                    transform: rotate(45deg) translateY(-100%);
+                    top: 43%;
+                }
+
+                &:before {
+                    transform: rotate(-45deg) translateY(100%);
+                    top: 57%;
+                }
+            }
+        }
+    }
+
+    &__close {
+        width: 40px;
+        height: 40px;
+        background: $mainColor;
+        border-radius: 50%;
+        border: none;
+        position: absolute;
+        top: -20px;
+        right:-20px;
+        z-index: 3;
+
+        &:focus {
+            outline:none;
+        }
+
+        &:after,
+        &:before {
+            height: 2px;
+            width: 16px;
+            content: '';
+            position: absolute;
+            top:calc(50% - 1px);
+            left:12px;
+            background: $white;
+        }
+
+        &:after {
+            transform: rotate(-45deg);
+        }
+
+        &:before {
+            transform: rotate(45deg);
+        }
+    }
+}

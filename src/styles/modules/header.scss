@@ -1,0 +1,273 @@
+.header {
+
+    height: 70px;
+    background: $black;
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    $h: &;
+
+    &__hamburguer {
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+        margin: auto;
+        position: absolute;
+        right: 15px;
+        top: 25px;
+
+        span {
+            background-color: $mainColor;
+            border-radius: 2px;
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+
+            &:nth-child(1) {
+                animation:outT 0.6s $easing backwards;
+                animation-direction:reverse;
+            }
+            &:nth-child(2) {
+                margin: 7px 0;
+                animation:outM 0.6s $easing backwards;
+                animation-direction:reverse;
+            }
+            &:nth-child(3) {
+                animation:outBtm 0.6s $easing backwards;
+                animation-direction:reverse;
+            }
+        }
+
+        @include mq(md) {
+            display: none;
+        }
+    }
+
+    &__container {
+        display: flex;
+    }
+
+    &__logo {
+        @include trans;
+        height: 50px;
+        width: 160px;
+        overflow: hidden;
+
+        img{
+            height: 100%;
+        }
+    }
+
+    &__social {
+        display: none;
+
+        @include mq(md) {
+            display: flex;
+            height: 50px;
+            align-items: center;
+        }
+
+        li {
+            margin-right: 20px;
+
+            a {
+                display: block;
+                font-size: 21px;
+            }
+        }
+    }
+
+    &__nav {
+        @include trans;
+        background: rgba(0,0,0,.85);
+        position: fixed;
+        top: 70px;
+        bottom:0;
+        left:0;
+        right:0;
+        padding: 20px;
+        transform: translateX(-100%);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding-bottom: 70px;
+
+        @include mq(md) {
+            flex-grow:1;
+            height: 50px;
+            flex-direction: row;
+            align-items: center;
+            transform: translateX(0);
+            padding: 0;
+            position: static;
+        }
+
+        &__social {
+            display: flex;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+
+            @include mq(md) {
+                display: none;
+            }
+
+            li {
+                margin-right: 20px;
+
+                a {
+                    display: block;
+                    font-size: 21px;
+                }
+
+                p {
+                    color: $white;
+                    line-height: 21px;
+                    margin: 0;
+                    font-family: $altFont;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    &__menu {
+        @include mq(md) {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        li {
+            @include trans;
+
+            border-bottom: 5px solid transparent;
+
+            &.-active {
+                border-bottom: 5px solid $mainColor;
+            }
+        }
+
+        a {
+            font-family: $altFont;
+            color: $white;
+            font-weight: 300;
+            display: block;
+            padding-left: 10px;
+            padding-right: 10px;
+            height: 40px;
+            line-height: 40px;
+            position: relative;
+            font-size: 21px;
+
+            @include mq(md) {
+                font-size: 14px;
+            }
+
+            &:focus {
+                text-decoration: none;
+            }
+
+            &.header__menu__cta {
+                background: $mainColor;
+                margin-left: 10px;
+                position: absolute;
+                bottom: 30px;
+                left: 20px;
+                right: 30px;
+                text-align: center;
+
+                &:hover {
+                    color: $white;
+                    background: $mainColor - #333;
+                }
+
+                @include mq(md) {
+                    position: static;
+                }
+            }
+        }
+    }
+
+    &.-ontop {
+        #{$h}__logo {
+            width: 0;
+            opacity: 0;
+        }
+    }
+
+    &.-open {
+        #{$h}__hamburguer {
+            span:nth-child(1) {
+                animation:inT 0.6s $easing forwards;
+            }
+            span:nth-child(2) {
+                animation:inM 0.6s $easing forwards;
+            }
+            span:nth-child(3) {
+                animation:inBtm 0.6s $easing forwards;
+            }
+        }
+
+        #{$h}__nav {
+            transform: translateX(0);
+        }
+
+        #{$h}__logo {
+            width: 160px;
+            opacity: 1;
+        }
+    }
+
+    & + main {
+        padding-top: 70px;
+    }
+}
+
+body:not(.-home) {
+    .header.-ontop {
+        .header__logo {
+            width: 160px;
+            opacity: 1;
+        }
+    }
+}
+
+//hamburguer animations
+@keyframes inM{
+50%{transform:rotate(0deg);}
+100%{transform:rotate(45deg);}
+}
+
+@keyframes outM{
+50%{transform:rotate(0deg);}
+100%{transform:rotate(45deg);}
+}
+
+@keyframes inT{
+0%{transform: translateY(0px) rotate(0deg);}
+50%{transform: translateY(9px) rotate(0deg);}
+100%{transform: translateY(9px) rotate(135deg);}
+}
+
+@keyframes outT{
+0%{transform: translateY(0px) rotate(0deg);}
+50%{transform: translateY(9px) rotate(0deg);}
+100%{transform: translateY(9px) rotate(135deg);}
+}
+
+@keyframes inBtm{
+0%{transform: translateY(0px) rotate(0deg);}
+50%{transform: translateY(-9px) rotate(0deg);}
+100%{transform: translateY(-9px) rotate(135deg);}
+}
+@keyframes outBtm{
+0%{transform: translateY(0px) rotate(0deg);}
+50%{transform: translateY(-9px) rotate(0deg);}
+100%{transform: translateY(-9px) rotate(135deg);}
+}

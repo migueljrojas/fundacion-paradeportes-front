@@ -1,0 +1,76 @@
+.empresas {
+
+    $height: 80px;
+    $padding: 10px;
+    background: $white;
+
+    &__heading {
+        background: $mainColor;
+        height: $height;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        justify-content: center;
+
+        @include mq(sm) {
+            justify-content: flex-end;
+        }
+
+        &__title {
+            color: $white;
+            text-transform: uppercase;
+            font-size: 16px;
+            margin: 0;
+
+            @include mq(sm) {
+                text-align: right;
+            }
+
+            strong {
+                @include mq(sm) {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &__list {
+        white-space: nowrap;
+        overflow-y: hidden;
+        overflow-x: auto;
+        min-height: $height;
+        padding-bottom: 50px;
+        box-sizing: content-box;
+        cursor:move;
+        cursor:-webkit-grab;
+        cursor:-moz-grab;
+        cursor:grab;
+        user-select: none;
+
+        &__wrapper {
+            overflow: hidden;
+            position: relative;
+            height: $height;
+            width: 100%;
+        }
+
+    }
+
+    &__item {
+        display: inline-block;
+        text-align: center;
+        height: $height;
+        padding: $padding $height;
+
+        &__logo {
+            height: $height - ($padding * 2);
+            user-select: none;
+
+            img{
+                width: auto;
+                height: $height - ($padding * 2);
+                filter: grayscale(100%);
+            }
+        }
+    }
+}

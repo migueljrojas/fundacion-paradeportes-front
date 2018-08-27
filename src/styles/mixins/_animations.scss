@@ -1,0 +1,52 @@
+/* Mixins */
+
+@mixin animation($delay, $duration, $iteration, $animation, $speed-curve) {
+  -webkit-animation-delay: $delay;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-iteration-count: $iteration;
+  -webkit-animation-name: $animation;
+  -webkit-animation-timing-function: $speed-curve;
+  -webkit-animation-fill-mode: forwards;
+
+  animation-delay: $delay;
+  animation-duration: $duration;
+  animation-iteration-count: $iteration;
+  animation-name: $animation;
+  animation-timing-function: $speed-curve;
+  animation-fill-mode: forwards;
+}
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+/* Keyframes */
+
+@include keyframes(fadeIn){
+  0%   { opacity: 0;}
+  100% { opacity: 1;}
+}
+
+@include keyframes(fadeOut){
+  0%   { opacity: initial;}
+  100% { opacity: 0;}
+}
+
+@include keyframes(dash){
+  to   { stroke-dashoffset: 0;}
+}
+
+/* Animation Classes */
+
+.fadeIn{
+  @include animation(0s, 1s, 1, fadeIn, 'linear')
+}
+
+.fadeOut{
+  @include animation(0s, 0.5s, 1, fadeOut, 'linear')
+}

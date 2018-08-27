@@ -1,0 +1,28 @@
+.footer {
+    background: $black;
+    color: $midGray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 15px;
+
+    &__social {
+        display: flex;
+        padding-bottom: 20px;
+
+        li {
+            margin-left: 10px;
+        }
+
+        a {
+            color: $midGray;
+            font-size: 21px;
+        }
+    }
+
+    &__copy {
+        font-size: 12px;
+        text-align: center;
+    }
+}
