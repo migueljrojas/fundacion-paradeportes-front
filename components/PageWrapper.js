@@ -1,5 +1,8 @@
 import React from "react";
 import { Config } from "../config.js";
+import Router from 'next/router'
+
+Router.onAppUpdated = nextRoute => location.href = nextRoute;
 
 const PageWrapper = Comp => (
   class extends React.Component {
