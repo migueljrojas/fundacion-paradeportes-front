@@ -22,11 +22,6 @@ class Contact extends Component {
         this.isSubmitEnabled = this.isSubmitEnabled.bind(this);
     }
 
-
-    componentDidMount() {
-        console.log('test');
-    }
-
     submitForm(event) {
         event.preventDefault();
         console.log('submit');
@@ -62,7 +57,6 @@ class Contact extends Component {
         const value = event.target.value;
 
         this.setState({[key]:[value]});
-        console.log(key, value);
         this.isSubmitEnabled();
     }
 
