@@ -3,3 +3,4 @@ oauth.js
 oauth.config
 .next
 .git
+.DS_Store
