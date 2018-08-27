@@ -37,6 +37,7 @@ class Contact extends Component {
         fetch(url, {
             credentials: 'same-origin',
             method: 'POST',
+            mode: 'cors',
             headers: {
                 'Authorization': `Basic QWRtaW46UGFyYWQzcDBydDM1`
             },
