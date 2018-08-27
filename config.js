@@ -1,1 +1,1 @@
-export const Config = {apiUrl: 'http://fundacionparadeportes.org'}
+export const Config = {apiUrl: 'http://admin.fundacionparadeportes.org'}
