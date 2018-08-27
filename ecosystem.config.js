@@ -18,7 +18,7 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'git@github.com:migueljrojas/fundacion-paradeportes-front.git',
       path : '/home/admin/web/fundacionparadeportes.org/public_html',
-      'post-deploy' : 'npm install && npm run build && pm2 reload ecosystem.config.js --env production'
+      'post-deploy' : 'npm install && npm run build && npm run start && pm2 reload ecosystem.config.js --env production'
     }
   }
 };
