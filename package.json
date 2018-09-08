@@ -11,6 +11,7 @@
         "build": "next build",
         "start": "node server.js"
     },
+    "proxy": "https://fundacionparadeportes.org:3000",
     "keywords": [],
     "author": "",
     "license": "ISC",
