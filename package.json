@@ -9,7 +9,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "next",
         "build": "next build",
-        "start": "node server.js"
+        "start": "NODE_ENV=production node server.js"
     },
     "proxy": "https://fundacionparadeportes.org:3000",
     "keywords": [],

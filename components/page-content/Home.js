@@ -178,12 +178,6 @@ class Home extends Component {
                         <div className="container">
                             <div className="row">
                                 <div className="col-xs-24 col-sm-12">
-                                    <h1
-                                        className="home__hero__title wow fadeInLeft"
-                                    >
-                                        {homeData.quote}
-                                        <span>{homeData.quote_author}</span>
-                                    </h1>
                                     <div className="home__hero__logo wow fadeInLeft">
                                         <img
                                             src="/static/images/logo-white.png"
@@ -191,6 +185,12 @@ class Home extends Component {
                                             className="img-responsive"
                                         />
                                     </div>
+                                    <h1
+                                        className="home__hero__title wow fadeInLeft"
+                                    >
+                                        {homeData.quote}
+                                        <span>{homeData.quote_author}</span>
+                                    </h1>
                                 </div>
                                 <div className="col-xs-24 col-sm-12">
                                     <div className="cta wow fadeInRight">
