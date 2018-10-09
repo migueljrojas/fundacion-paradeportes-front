@@ -24,7 +24,7 @@ class Nosotros extends Component {
                             <div className='col-xs-24 col-sm-12'>
                                 <div className='cta wow fadeInRight'>
                                   <h2 className='cta__title'>Tu aporte suma</h2>
-                                  <a href='#' className='cta__button'>Hacé la diferencia</a>
+                                  <a href='/tu-aporte-suma' className='cta__button'>Hacé la diferencia</a>
                                 </div>
                             </div>
                         </div>

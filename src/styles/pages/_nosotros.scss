@@ -102,18 +102,6 @@
         font-family: $altFont;
         font-weight: 300;
         margin-bottom: 20px;
-
-        &:before {
-            content: '“';
-            position: absolute;
-            left: 0;
-            color: $mainColor;
-            font-size: 100px;
-            top:0;
-            font-family: $altFont;
-            font-weight: 600;
-            line-height: .8;
-        }
     }
 
     &__interstitial {

@@ -33,15 +33,6 @@ class Menu extends Component {
     render() {
       const menuItems = this.props.menu.items.map((item, index) => {
         if (item.object === 'custom') {
-            if (item.post_name === 'tu-aporte-suma') {
-                return (
-                    <li key={item.ID}>
-                        <Link href={item.url}>
-                            <a className='header__menu__cta'>{item.title}</a>
-                        </Link>
-                    </li>
-                );
-            }
             return (
                 <li key={item.ID}>
                     <AnchorLink href={item.url}>
@@ -52,9 +43,28 @@ class Menu extends Component {
         }
         const slug = this.getSlug(item.url);
         const actualPage = item.object === 'category' ? 'category' : 'post';
+        if (slug === 'tu-aporte-suma') {
+            return (
+                <li key={item.ID}>
+                    <Link
+                        prefetch
+                        as={`/${slug}`}
+                        href={`/${actualPage}?slug=${slug}&apiRoute=${item.object}`}
+                    >
+                        <a
+                            className='header__menu__cta'
+                            onClick={this.setActivePage}
+                        >
+                            {item.title}
+                        </a>
+                    </Link>
+                </li>
+            );
+        }
         return (
             <li key={item.ID}>
                 <Link
+                    prefetch
                     as={`/${slug}`}
                     href={`/${actualPage}?slug=${slug}&apiRoute=${item.object}`}
                 >
@@ -68,9 +78,11 @@ class Menu extends Component {
         <header className='header -ontop'>
         <div className='container header__container'>
             <div className='header__logo'>
-                <a href='/'>
-                    <img src='/static/images/logo-white.png' />
-                </a>
+                <Link prefetch href='/'>
+                    <a>
+                        <img src='/static/images/logo-white.png' />
+                    </a>
+                </Link>
             </div>
             <ul className='header__social'>
                 <li><a href='https://facebook.com' target='_blank'><i className='fa fa-facebook'></i></a></li>

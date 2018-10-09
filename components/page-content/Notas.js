@@ -6,7 +6,6 @@ class Notas extends Component {
 
     render() {
         const notaData = this.props.data;
-        console.log(notaData);
 
         return(
             <main className='nota'>

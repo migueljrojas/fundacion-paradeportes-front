@@ -7,8 +7,6 @@ class Novedades extends Component {
     generateMainArticles(news) {
         news.map((nota, index) => {
 
-            console.log('genMainArt', nota);
-
             const date = new Date(nota.date);
             const dateFormatted = date.toLocaleDateString('es-AR');
 
@@ -136,8 +134,6 @@ class Novedades extends Component {
     generateNewsBody(news) {
         if (news.length <= 3) {
             const mainArticles = this.generateMainArticles(news);
-            console.log('just 3');
-            console.log('mainArticles', mainArticles);
             return (
                 <section className='novedades__main'>
                     <div className='container'>
@@ -148,7 +144,6 @@ class Novedades extends Component {
                 </section>
             );
         } else if (news.length <= 4) {
-            console.log('4');
             const topArticle = news[0];
             const mainArticles = news.slice(-3);
 
@@ -173,7 +168,6 @@ class Novedades extends Component {
                 </div>
             );
         } else {
-            console.log('more than 4');
             const topArticle = news[0];
             const mainArticles = news.slice(1,4);
             const otherArticles = news.slice(4);
@@ -302,7 +296,7 @@ class Novedades extends Component {
                             </div>
                             <div className='col-xs-24 col-sm-12'>
                                 <div className='cta wow fadeInRight'>
-                                    <h2 className='cta__title'>Tu aporte suma</h2><a href='#' className='cta__button'>Hacé la diferencia</a>
+                                    <h2 className='cta__title'>Tu aporte suma</h2><a href='/tu-aporte-suma' className='cta__button'>Hacé la diferencia</a>
                                 </div>
                             </div>
                         </div>

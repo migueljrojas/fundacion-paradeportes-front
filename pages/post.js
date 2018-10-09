@@ -1,5 +1,6 @@
 import Layout from '../components/Layout.js';
 import React, { Component } from 'react';
+import Router from 'next/router';
 import fetch from 'isomorphic-unfetch';
 import Error from 'next/error';
 import PageWrapper from '../components/PageWrapper.js';
@@ -10,6 +11,7 @@ import Mision from '../components/page-content/Mision';
 import Programas from '../components/page-content/Programas';
 import Novedades from '../components/page-content/Novedades';
 import Galeria from '../components/page-content/Galeria';
+import Aporte from '../components/page-content/Aporte';
 import Notas from '../components/page-content/Notas';
 
 class Post extends Component {
@@ -20,8 +22,19 @@ class Post extends Component {
         return { post };
     }
 
+    constructor() {
+        super();
+
+        this.state = {
+            loading: true
+        };
+    }
+
     componentDidMount() {
         this.setActivePage();
+        this.setState({
+            loading: false
+        });
     }
 
     setActivePage() {
@@ -57,13 +70,36 @@ class Post extends Component {
             case 'galeria':
                 return <Galeria data={data} />
                 break;
+            case 'tu-aporte-suma':
+                return <Aporte data={data} />
+                break;
             default:
                 return <Notas data={data} />
         }
     }
 
     render() {
+        const handleRouteChange = url => {
+            this.setState({
+                loading: true
+            });
+            console.log('App is changing to: ', url);
+        }
+
+        const handleRouteComplete = url => {
+            this.setState({
+                loading: false
+            });
+            console.log('App changed to: ', url);
+        }
+
+        const isLoading = this.state.loading;
+
+        Router.onRouteChangeStart = (url) => handleRouteChange(url);
+        Router.onRouteChangeComplete = (url) => handleRouteComplete(url);
+
         if (!this.props.post.title) return <Error statusCode={404} />;
+
         return (
             <Layout
                 contact={this.props.contact}
@@ -73,7 +109,19 @@ class Post extends Component {
                 paradeportes={this.props.paradeportes}
                 empresas={this.props.empresas}
             >
-            {this.getPageContent(this.props.post)}
+            {isLoading &&
+                <div className="loading">
+                    <div className="loading__box">
+                        <div className="loading__ring"><div></div><div></div><div></div><div></div></div>
+                        <span className="loading__text">
+                            {'Cargando...'}
+                        </span>
+                    </div>
+                </div>
+            }
+
+            {!isLoading &&
+                this.getPageContent(this.props.post)}
             </Layout>
         );
     }
