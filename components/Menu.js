@@ -85,10 +85,10 @@ class Menu extends Component {
                 </Link>
             </div>
             <ul className='header__social'>
-                <li><a href='https://facebook.com' target='_blank'><i className='fa fa-facebook'></i></a></li>
-                <li><a href='https://facebook.com' target='_blank'><i className='fa fa-instagram'></i></a></li>
-                <li><a href='https://facebook.com' target='_blank'><i className='fa fa-twitter'></i></a></li>
-                <li><a href='https://facebook.com' target='_blank'><i className='fa fa-youtube'></i></a></li>
+                <li><a target="_blank" href="https://www.facebook.com/Paradeportes"><i className="fa fa-facebook"></i></a></li>
+                <li><a target="_blank" href="https://twitter.com/@ParaDeportesOK"><i className="fa fa-instagram"></i></a></li>
+                <li><a target="_blank" href="https://www.instagram.com/paradeportes/"><i className="fa fa-twitter"></i></a></li>
+                <li><a target="_blank" href="https://www.youtube.com/channel/UCvIiiZy4RvR3inRJIAhLh5g"><i className="fa fa-youtube"></i></a></li>
             </ul>
             <div className='header__hamburguer' onClick={this.handleMobileMenu}>
                 <span></span><span></span><span></span>
@@ -101,10 +101,10 @@ class Menu extends Component {
                     <li>
                         <p>Seguínos en:</p>
                     </li>
-                    <li><a href='https://facebook.com' target='_blank'><i className='fa fa-facebook'></i></a></li>
-                    <li><a href='https://facebook.com' target='_blank'><i className='fa fa-instagram'></i></a></li>
-                    <li><a href='https://facebook.com' target='_blank'><i className='fa fa-twitter'></i></a></li>
-                    <li><a href='https://facebook.com' target='_blank'><i className='fa fa-youtube'></i></a></li>
+                    <li><a target="_blank" href="https://www.facebook.com/Paradeportes"><i className="fa fa-facebook"></i></a></li>
+                    <li><a target="_blank" href="https://twitter.com/@ParaDeportesOK"><i className="fa fa-instagram"></i></a></li>
+                    <li><a target="_blank" href="https://www.instagram.com/paradeportes/"><i className="fa fa-twitter"></i></a></li>
+                    <li><a target="_blank" href="https://www.youtube.com/channel/UCvIiiZy4RvR3inRJIAhLh5g"><i className="fa fa-youtube"></i></a></li>
                 </ul>
             </nav>
         </div>

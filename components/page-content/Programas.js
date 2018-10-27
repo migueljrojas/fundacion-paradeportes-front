@@ -33,7 +33,7 @@ class Programas extends Component {
                                         >
                                             <a className='programas__item__actions__info'>Más Información</a>
                                         </Link>
-                                        <a href='#' className='programas__item__actions__cta'>Participá</a>
+                                        <a href='#' className='programas__item__actions__cta'>Tu Aporte Suma</a>
                                     </div>
                                 </div>
                             </div>

@@ -287,6 +287,10 @@ class Novedades extends Component {
         return(
             <main className='novedades'>
                 <section className='novedades__hero'>
+                    <img
+                        src={novedadesData.imagen.url}
+                        className='novedades__hero__img'
+                    />
                     <div className='container'>
                         <div className='row'>
                             <div className='col-xs-24 col-sm-12'>
